@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>House of Nails — Onglerie & Nail Art</title>
+  <meta name="description" content="House of Nails : manucure, semi-permanent, extensions gel, nail art et beauté des pieds. Réservez en ligne.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav" id="top">
+    <a href="#top" class="logo"><span class="logo-mark">H</span><span data-bind="nom">House of Nails</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="menu">
+      <a href="#prestations">Prestations</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#avis">Avis</a>
+      <a href="#infos">Infos</a>
+      <a href="#reserver" class="btn btn-small">Réserver</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Onglerie · Nail art · Beauté des pieds</p>
+        <h1 data-bind="slogan">L'art de la beauté, du bout des ongles</h1>
+        <p class="lead">Manucure, semi-permanent, extensions gel et nail art sur mesure, dans un salon chaleureux où l'hygiène et le détail passent avant tout.</p>
+        <div class="hero-cta">
+          <a href="#reserver" class="btn">Prendre rendez-vous</a>
+          <a href="#prestations" class="btn btn-ghost">Voir les tarifs</a>
+        </div>
+        <p class="status" id="open-status"></p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="nail n1"></div><div class="nail n2"></div><div class="nail n3"></div>
+        <div class="nail n4"></div><div class="nail n5"></div>
+      </div>
+    </section>
+
+    <section class="strip">
+      <div><strong>Outils stérilisés</strong><span>Limes à usage unique</span></div>
+      <div><strong>Produits premium</strong><span>Vernis & gels haute tenue</span></div>
+      <div><strong>Nail art sur mesure</strong><span>Vos idées, notre savoir-faire</span></div>
+    </section>
+
+    <section id="prestations" class="section">
+      <h2>Prestations & tarifs</h2>
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <div class="services" id="services"></div>
+    </section>
+
+    <section id="galerie" class="section alt">
+      <h2>Galerie</h2>
+      <p class="sub">Un aperçu des styles que nous réalisons. Retrouvez nos dernières créations sur <a id="insta-link" href="#" target="_blank" rel="noopener">Instagram</a>.</p>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section id="equipe" class="section">
+      <h2>L'équipe</h2>
+      <div class="team" id="team"></div>
+    </section>
+
+    <section id="avis" class="section alt">
+      <h2>Ce qu'en disent nos clientes</h2>
+      <div class="reviews" id="reviews"></div>
+    </section>
+
+    <section id="reserver" class="section">
+      <h2>Réserver</h2>
+      <p class="sub">Choisissez vos prestations, un créneau, et envoyez votre demande par WhatsApp ou e-mail. Nous vous confirmons rapidement.</p>
+      <form class="booking" id="booking" novalidate>
+        <fieldset>
+          <legend>1. Prestations</legend>
+          <div class="checks" id="booking-services"></div>
+        </fieldset>
+        <fieldset>
+          <legend>2. Date & heure</legend>
+          <div class="row">
+            <label>Date<input type="date" name="date" required></label>
+            <label>Heure<select name="heure" required><option value="">— Choisir une date —</option></select></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>3. Vos coordonnées</legend>
+          <div class="row">
+            <label>Nom<input type="text" name="nom" autocomplete="name" required></label>
+            <label>Téléphone<input type="tel" name="tel" autocomplete="tel" required></label>
+          </div>
+          <label>Message (inspiration, forme, couleur…)<textarea name="message" rows="3"></textarea></label>
+        </fieldset>
+        <div class="summary" id="summary">Aucune prestation sélectionnée.</div>
+        <p class="error" id="form-error" role="alert"></p>
+        <div class="hero-cta">
+          <button type="submit" class="btn" data-via="whatsapp">Envoyer par WhatsApp</button>
+          <button type="submit" class="btn btn-ghost" data-via="email">Envoyer par e-mail</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="infos" class="section alt">
+      <h2>Infos pratiques</h2>
+      <div class="infos">
+        <div>
+          <h3>Horaires</h3>
+          <ul class="hours" id="hours"></ul>
+        </div>
+        <div>
+          <h3>Nous trouver</h3>
+          <p data-bind="adresse"></p>
+          <p><a id="tel-link" href="#"></a></p>
+          <p><a id="mail-link" href="#"></a></p>
+          <a class="btn btn-ghost btn-small" id="maps-link" target="_blank" rel="noopener">Itinéraire</a>
+        </div>
+        <div>
+          <h3>Questions fréquentes</h3>
+          <div class="faq" id="faq"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> <span data-bind="nom">House of Nails</span> — Tous droits réservés.</p>
+    <a href="#top">Haut de page ↑</a>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
