@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>MBLashes Conditions</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#2d241c;--muted:#8a7762;--sand:#ece1d0;--card:#fffcf7;--gold:#b48a45;--gold-d:#8d6930;
+    --foil:linear-gradient(105deg,#8a652a 0%,#c69a52 18%,#f3dfa6 33%,#b9883d 48%,#e9cd8a 64%,#a77c35 80%,#d8b66f 100%)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1080px;height:1620px}
+  body{font-family:'Cormorant',serif;color:var(--ink);overflow:hidden}
+  .poster{position:relative;width:1080px;height:1620px;overflow:hidden;
+    background:radial-gradient(ellipse 80% 60% at 30% 20%,#f4ecdf,transparent 70%),var(--sand)}
+  .grain{position:absolute;inset:0;mix-blend-mode:multiply;opacity:.6;z-index:30;pointer-events:none}
+  .foil{background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  .water{position:absolute;right:-230px;bottom:330px;width:720px;opacity:.13;transform:rotate(-8deg);z-index:1}
+  .brush{position:absolute;top:120px;left:-160px;width:900px;transform:rotate(-16deg);z-index:1}
+
+  .arch{position:absolute;left:110px;right:110px;top:100px;height:1380px;background:var(--card);
+    border-radius:430px 430px 18px 18px;box-shadow:0 30px 60px -30px rgba(90,64,30,.35),0 2px 0 rgba(255,255,255,.8) inset;z-index:2}
+  .arch::before{content:"";position:absolute;inset:22px;border-radius:410px 410px 8px 8px;border:1.3px solid rgba(180,138,69,.7)}
+  .inner{position:absolute;inset:0;padding:96px 92px 0;display:flex;flex-direction:column;align-items:center;z-index:3}
+
+  .logo{height:120px}
+  .kicker{margin-top:26px;font-family:'Jost';font-weight:400;font-size:15px;letter-spacing:.42em;color:var(--muted);padding-left:.42em}
+  h1{margin-top:14px;font-weight:500;font-size:104px;line-height:.95;letter-spacing:.01em;text-align:center}
+  h1 em{display:block;font-family:'Pinyon Script';font-style:normal;font-weight:400;font-size:80px;margin-top:-2px;white-space:nowrap;padding:0 20px 18px}
+
+  ul{list-style:none;width:100%;margin-top:22px}
+  li{display:flex;gap:26px;align-items:flex-start;padding:30px 0}
+  li + li{border-top:1px dashed rgba(180,138,69,.45)}
+  .k{flex:0 0 74px;font-family:'Cormorant';font-style:italic;font-size:30px;color:var(--gold-d);padding-top:4px;white-space:nowrap}
+  .k span{font-size:46px;line-height:.9}
+  .t{font-size:35px;line-height:1.26}
+  .t b{font-weight:600;background:linear-gradient(transparent 62%,rgba(233,205,138,.55) 62%,rgba(233,205,138,.55) 92%,transparent 92%);padding:0 3px}
+  .t small{display:block;font-family:'Jost';font-weight:300;font-size:18px;letter-spacing:.03em;color:var(--muted);margin-top:6px}
+
+  .note{position:absolute;bottom:52px;z-index:5;left:0;right:0;text-align:center;font-family:'Jost';font-size:14px;letter-spacing:.38em;color:var(--muted)}
+  .merci{position:absolute;left:0;right:0;bottom:56px;text-align:center;z-index:5}
+  .merci div{display:inline-block;font-family:'Pinyon Script';font-size:64px;padding:0 20px 16px}
+  .merci p{display:none}
+  .deposit{margin-top:34px;width:100%;display:flex;align-items:center;gap:34px;padding:30px 40px;border-radius:14px;
+    background:linear-gradient(120deg,#f6ead2,#fbf3e3 45%,#f1e0bf);border:1.3px solid rgba(180,138,69,.65);position:relative}
+  .deposit::after{content:"";position:absolute;inset:7px;border-radius:9px;border:1px solid rgba(180,138,69,.3)}
+  .amt{font-family:'Cormorant';font-variant-numeric:lining-nums;font-weight:500;font-size:112px;line-height:.9;white-space:nowrap;padding-right:30px;border-right:1px solid rgba(180,138,69,.5)}
+  .dt{font-size:30px;line-height:1.25;color:var(--ink)}
+  .dt span{display:block;font-family:'Jost';font-weight:400;font-size:17px;letter-spacing:.3em;color:var(--gold-d);margin-bottom:8px}
+  .menu{margin-top:40px}
+  .menu li.p{display:flex;align-items:baseline;gap:18px;padding:42px 0}
+  .nm{font-size:44px;line-height:1.1;white-space:nowrap}
+  .nm .m{font-style:italic;color:var(--muted);font-size:32px;margin-right:12px}
+  .nm small{display:block;font-family:'Jost';font-weight:300;font-size:18px;letter-spacing:.05em;color:var(--muted);margin-top:6px}
+  .lead{flex:1;border-bottom:2px dotted rgba(180,138,69,.55);transform:translateY(-10px);align-self:baseline}
+  .pr{font-family:'Cormorant';font-weight:500;font-size:64px;line-height:1;font-variant-numeric:lining-nums;white-space:nowrap;padding:0 4px}
+  .foot{margin-top:30px;font-variant-numeric:lining-nums;font-style:italic;font-size:26px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2=".3">
+    <stop offset="0" stop-color="#8a652a"/><stop offset=".25" stop-color="#d1a65c"/><stop offset=".45" stop-color="#f3dfa6"/>
+    <stop offset=".65" stop-color="#b9883d"/><stop offset=".85" stop-color="#e2c27c"/><stop offset="1" stop-color="#9c7433"/></linearGradient>
+  <filter id="rough" x="-10%" y="-30%" width="120%" height="160%">
+    <feTurbulence type="fractalNoise" baseFrequency=".012 .09" numOctaves="4" seed="11" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="40" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    <feTurbulence type="fractalNoise" baseFrequency=".9 .04" numOctaves="2" seed="5" result="s"/>
+    <feColorMatrix in="s" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.55" result="st"/>
+    <feComposite in="d" in2="st" operator="in"/></filter>
+</defs></svg>
+
+<div class="poster">
+  <svg class="grain" width="1080" height="1620"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .42  0 0 0 0 .32  0 0 0 .2 0"/></filter><rect width="100%" height="100%" filter="url(#gr)"/></svg>
+
+  <svg class="brush" viewBox="0 0 1000 200"><path filter="url(#rough)" fill="url(#g)" opacity=".55"
+    d="M40 120 C 200 70, 420 60, 640 78 S 900 96, 960 88 C 970 112, 940 130, 900 128 C 700 120, 420 118, 230 140 C 140 150, 60 158, 40 120Z"/></svg>
+  <img class="water" src="logo-mb.png" alt="">
+
+  <div class="arch">
+    <div class="inner">
+      <img class="logo" src="logo-mb.png" alt="MB">
+      <div class="kicker">LA CARTE DES PRESTATIONS</div>
+      <h1>Tarifs<em class="foil">extensions de cils</em></h1>
+
+      <ul class="menu">
+        <li class="p"><div class="nm"><span class="m">Modèle</span>Russe<small>Léger ou intense</small></div><div class="lead"></div><div class="pr foil">35&nbsp;€</div></li>
+        <li class="p"><div class="nm"><span class="m">Modèle</span>Mixte</div><div class="lead"></div><div class="pr foil">30&nbsp;€</div></li>
+        <li class="p"><div class="nm"><span class="m">Modèle</span>Whispy</div><div class="lead"></div><div class="pr foil">35&nbsp;€</div></li>
+        <li class="p"><div class="nm"><span class="m">Modèle</span>Cat Eyes</div><div class="lead"></div><div class="pr foil">35&nbsp;€</div></li>
+      </ul>
+      <p class="foot">Un acompte de 5&nbsp;€ est demandé pour confirmer la réservation.</p>
+    </div>
+    <div class="merci"><div class="foil">À très vite</div><p>MBLASHES</p></div>
+  </div>
+
+  <div class="note">MBLASHES · EXTENSIONS DE CILS</div>
+      
+</div>
+</body>
+</html>
