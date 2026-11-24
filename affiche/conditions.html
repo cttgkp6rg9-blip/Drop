@@ -3,132 +3,108 @@
 <head>
 <meta charset="utf-8">
 <title>MBLashes Conditions</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --gold: linear-gradient(120deg,#8c6a2c 0%,#c9a157 22%,#f1dca0 42%,#b88a3e 60%,#e3c681 80%,#94702f 100%);
-    --gold-solid:#b08d4a;
-    --ink:#3b2f24;
-    --muted:#7a6a58;
-    --paper:#fffdf9;
+    --ink:#2b221b; --muted:#85725d; --paper:#fbf7f0; --gold:#b48a45; --gold-d:#8d6930;
+    --foil: linear-gradient(105deg,#8a652a 0%,#c69a52 18%,#f3dfa6 33%,#b9883d 48%,#e9cd8a 64%,#a77c35 80%,#d8b66f 100%);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{width:1080px;height:1620px;background:var(--paper)}
-  body{font-family:'Cormorant Garamond',serif;color:var(--ink);overflow:hidden}
-  .poster{position:relative;width:1080px;height:1620px;
-    background:
-      radial-gradient(ellipse 70% 40% at 50% 0%, rgba(241,220,160,.22), transparent 70%),
-      radial-gradient(ellipse 60% 35% at 50% 100%, rgba(241,220,160,.18), transparent 70%),
-      var(--paper);}
-  /* frames */
-  .frame{position:absolute;inset:44px;border:1.5px solid transparent;
-    border-image:var(--gold) 1;}
-  .frame.inner{inset:58px;border-width:.75px;opacity:.7}
-  .corner{position:absolute;width:64px;height:64px}
-  .corner svg{width:100%;height:100%}
-  .c1{top:30px;left:30px}.c2{top:30px;right:30px;transform:scaleX(-1)}
-  .c3{bottom:30px;left:30px;transform:scaleY(-1)}.c4{bottom:30px;right:30px;transform:scale(-1)}
+  body{font-family:'Cormorant',serif;color:var(--ink);overflow:hidden}
+  .poster{position:relative;width:1080px;height:1620px;overflow:hidden;background:var(--paper)}
+  .grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.55;z-index:20}
+  .foil{background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-  .content{position:absolute;inset:58px;padding:70px 96px 0;display:flex;flex-direction:column;align-items:center}
-  .logo{width:300px;display:block}
-  .wordmark{width:400px;margin-top:22px}
+  .brush{position:absolute;pointer-events:none}
+  .b1{top:250px;left:-120px;width:1000px;transform:rotate(-7deg);opacity:.9}
+  .b2{bottom:-60px;right:-140px;width:760px;transform:rotate(-14deg);opacity:.55}
 
-  .title{margin-top:40px;text-align:center;line-height:1}
-  .title .caps{font-family:'Cormorant Garamond';font-weight:500;font-size:58px;letter-spacing:.32em;padding-left:.32em;
-    background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .title .script{font-family:'Pinyon Script';font-size:92px;margin-top:-4px;
-    background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 20px 14px}
+  header{position:absolute;top:70px;left:90px;right:90px;display:flex;align-items:center;justify-content:space-between;z-index:5}
+  header img{height:92px}
+  header .tag{font-family:'Jost';font-weight:400;font-size:15px;letter-spacing:.34em;color:var(--muted);text-align:right;line-height:1.7}
+  header .tag i{font-family:'Cormorant';font-style:italic;letter-spacing:0;font-size:22px;color:var(--gold-d)}
 
-  .rule{display:flex;align-items:center;gap:16px;width:420px;margin:0 0 18px}
-  .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#c9a157)}
-  .rule::after{background:linear-gradient(90deg,#c9a157,transparent)}
-  .star{width:14px;height:14px}
+  .hero{position:absolute;top:205px;left:84px;z-index:5}
+  .hero .big{font-family:'Cormorant';font-weight:500;font-size:168px;line-height:.9;letter-spacing:-.01em;color:var(--ink)}
+  .hero .script{position:absolute;left:330px;top:128px;font-family:'Pinyon Script';font-size:128px;white-space:nowrap;
+    transform:rotate(-6deg);padding:0 30px 30px 10px}
+  .hero .lead{margin-top:150px;max-width:560px;font-size:27px;font-style:italic;color:var(--muted);line-height:1.35}
 
-  ol{list-style:none;width:100%}
-  li{display:grid;grid-template-columns:96px 1fr;align-items:center;gap:34px;padding:19px 0;position:relative}
-  li + li::before{content:"";position:absolute;top:0;left:130px;right:0;height:1px;
-    background:linear-gradient(90deg,rgba(201,161,87,.55),rgba(201,161,87,.08))}
-  .icon{width:96px;height:96px;border-radius:50%;position:relative;display:grid;place-items:center}
-  .icon::before{content:"";position:absolute;inset:0;border-radius:50%;padding:1.5px;background:var(--gold);
-    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
-  .icon svg{width:60px;height:60px}
-  .num{position:absolute;top:-4px;right:2px;line-height:1;background:var(--paper);font-family:'Cormorant Garamond';font-style:italic;
-    font-size:20px;color:var(--gold-solid);padding:0 4px}
-  .txt h3{font-family:'Montserrat';font-weight:500;font-size:16px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-solid);margin-bottom:8px}
-  .txt p{font-size:31px;line-height:1.28;color:var(--ink)}
-  .txt p b{font-weight:600}
-  .txt small{display:block;font-style:italic;font-size:24px;color:var(--muted);margin-top:4px}
+  ol{position:absolute;top:680px;left:84px;right:84px;list-style:none;z-index:5}
+  li{display:grid;grid-template-columns:118px 1fr;align-items:baseline;padding:22px 0 24px;border-top:1px solid rgba(180,138,69,.35)}
+  li:last-child{border-bottom:1px solid rgba(180,138,69,.35)}
+  .n{font-family:'Cormorant';font-style:italic;font-weight:400;font-size:84px;line-height:.8}
+  .t{font-size:35px;line-height:1.25}
+  .t b{font-weight:600;position:relative;white-space:nowrap}
+  .t b svg{position:absolute;left:-4px;bottom:-9px;width:calc(100% + 8px);height:14px;overflow:visible}
+  .t small{display:block;font-family:'Jost';font-weight:300;font-size:19px;letter-spacing:.04em;color:var(--muted);margin-top:8px}
+  li:nth-child(even){padding-left:44px}
 
-  .footer{position:absolute;left:0;right:0;bottom:96px;text-align:center}
-  .footer .script{font-family:'Pinyon Script';font-size:56px;
-    background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 10px 8px}
-  .footer .rule{margin:4px auto 0;width:300px}
+  footer{position:absolute;left:84px;right:84px;bottom:96px;display:flex;align-items:flex-end;justify-content:space-between;z-index:5}
+  footer .merci{font-family:'Pinyon Script';font-size:64px;white-space:nowrap;line-height:1;transform:rotate(-4deg);transform-origin:left bottom;padding:0 10px 20px}
+  footer .sig{text-align:right;white-space:nowrap;font-family:'Jost';font-size:14px;letter-spacing:.32em;color:var(--muted);line-height:2}
+  footer .sig span{font-family:'Pinyon Script';letter-spacing:0;font-size:46px;color:var(--gold-d);display:block;line-height:1}
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#8c6a2c"/><stop offset=".35" stop-color="#d9b46a"/>
-      <stop offset=".55" stop-color="#f1dca0"/><stop offset=".75" stop-color="#b88a3e"/><stop offset="1" stop-color="#94702f"/>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2=".3">
+      <stop offset="0" stop-color="#8a652a"/><stop offset=".25" stop-color="#d1a65c"/><stop offset=".45" stop-color="#f3dfa6"/>
+      <stop offset=".65" stop-color="#b9883d"/><stop offset=".85" stop-color="#e2c27c"/><stop offset="1" stop-color="#9c7433"/>
     </linearGradient>
-    <symbol id="spark" viewBox="0 0 24 24"><path d="M12 0C12.8 8 16 11.2 24 12C16 12.8 12.8 16 12 24C11.2 16 8 12.8 0 12C8 11.2 11.2 8 12 0Z" fill="url(#g)"/></symbol>
+    <filter id="rough" x="-10%" y="-30%" width="120%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".012 .09" numOctaves="4" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="38" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".9 .04" numOctaves="2" seed="3" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.55" result="streaks"/>
+      <feComposite in="d" in2="streaks" operator="in"/>
+    </filter>
+    <filter id="pencil"><feTurbulence baseFrequency=".05" numOctaves="2" seed="2"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter>
+    <symbol id="u1" viewBox="0 0 100 14" preserveAspectRatio="none"><path filter="url(#pencil)" d="M2 9 C 30 4, 60 12, 98 5" stroke="url(#g)" stroke-width="3" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="u2" viewBox="0 0 100 14" preserveAspectRatio="none"><path filter="url(#pencil)" d="M2 7 C 35 11, 65 3, 98 8" stroke="url(#g)" stroke-width="3" fill="none" stroke-linecap="round"/></symbol>
   </defs>
 </svg>
 
 <div class="poster">
-  <div class="frame"></div><div class="frame inner"></div>
-  <!-- corner ornaments -->
-  <template id="corner"><svg viewBox="0 0 64 64" fill="none" stroke="url(#g)" stroke-width="1.4"><path d="M2 40V2h38"/><path d="M8 26V8h18"/><circle cx="8" cy="8" r="3" fill="url(#g)" stroke="none"/></svg></template>
-  <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+  <svg class="grain" width="1080" height="1620"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 .22 0"/></filter><rect width="100%" height="100%" filter="url(#gr)"/></svg>
 
-  <div class="content">
-    <img class="logo" src="logo-mb.png" alt="MB">
-    <img class="wordmark" src="logo-text.png" alt="MBLashes">
+  <svg class="brush b1" viewBox="0 0 1000 200"><path filter="url(#rough)" fill="url(#g)" opacity=".42"
+    d="M40 120 C 200 70, 420 60, 640 78 S 900 96, 960 88 C 970 112, 940 130, 900 128 C 700 120, 420 118, 230 140 C 140 150, 60 158, 40 120Z"/></svg>
+  <svg class="brush b2" viewBox="0 0 1000 200"><path filter="url(#rough)" fill="url(#g)" opacity=".5"
+    d="M30 110 C 250 60, 520 70, 760 80 S 960 92, 980 100 C 975 128, 900 140, 820 134 C 600 124, 380 130, 180 150 C 90 158, 40 140, 30 110Z"/></svg>
 
-    <div class="title">
-      <div class="caps">CONDITIONS</div>
-      <div class="script">à respecter</div>
-    </div>
-    <div class="rule"><svg class="star"><use href="#spark"/></svg></div>
+  <header>
+    <img src="logo-mb.png" alt="MB">
+    <div class="tag">MBLASHES<br><i>extensions de cils</i></div>
+  </header>
 
-    <ol>
-      <li>
-        <div class="icon"><span class="num">i</span>
-          <svg viewBox="3 3 42 42" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round"><circle cx="24" cy="26" r="17"/><path d="M24 15v11l7 5M19 5h10M24 5v4"/></svg></div>
-        <div class="txt"><h3>Ponctualité</h3><p>Retard maximum de <b>30 minutes</b> accepté.<small>Merci de me prévenir à l’avance.</small></p></div>
-      </li>
-      <li>
-        <div class="icon"><span class="num">ii</span>
-          <svg viewBox="3 3 42 42" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round"><circle cx="18" cy="16" r="6"/><path d="M6 40c0-7 5-12 12-12s12 5 12 12"/><circle cx="33" cy="18" r="5"/><path d="M31 28.5c6 0 11 4.5 11 11"/></svg></div>
-        <div class="txt"><h3>Accompagnement</h3><p>Me prévenir <b>en amont</b> si vous venez accompagnée.</p></div>
-      </li>
-      <li>
-        <div class="icon"><span class="num">iii</span>
-          <svg viewBox="3 3 42 42" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round"><path d="M6 22c10 9 26 9 36 0"/><path d="M11 27l-3 5M17 30l-2 6M24 31v6M31 30l2 6M37 27l3 5"/><use href="#spark" x="34" y="6" width="9" height="9" stroke="none"/></svg></div>
-        <div class="txt"><h3>Cils propres</h3><p>Venir avec les cils <b>propres</b>, sans aucun produit dessus.</p></div>
-      </li>
-      <li>
-        <div class="icon"><span class="num">iv</span>
-          <svg viewBox="3 3 42 42" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="22" width="10" height="20" rx="2"/><path d="M15 22v-8l3-6 3 6v8"/><rect x="27" y="28" width="9" height="14" rx="2"/><path d="M29 28v-5h5v5"/><path d="M7 7l34 34"/></svg></div>
-        <div class="txt"><h3>Sans maquillage</h3><p><b>Éviter</b> de venir maquillée si possible.</p></div>
-      </li>
-      <li>
-        <div class="icon"><span class="num">v</span>
-          <svg viewBox="3 3 42 42" fill="none" stroke="url(#g)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l19 34H5z"/><path d="M24 19v10"/><circle cx="24" cy="34.5" r="1.2" fill="url(#g)"/></svg></div>
-        <div class="txt"><h3>Allergies</h3><p>S’assurer de ne <b>pas être allergique</b> à la colle ou autre, pour éviter les mauvaises surprises.<small>Possibilité d’en discuter en privé.</small></p></div>
-      </li>
-    </ol>
-  </div>
+  <section class="hero">
+    <div class="big">Conditions</div>
+    <div class="script foil">à respecter</div>
+    <p class="lead">Quelques petites règles pour que votre rendez-vous se passe en toute sérénité, et que vos cils soient parfaits.</p>
+  </section>
 
-  <div class="footer">
-    <div class="script">Merci pour votre compréhension</div>
-    <div class="rule"><svg class="star"><use href="#spark"/></svg></div>
-  </div>
+  <ol>
+    <li><span class="n foil">01</span>
+      <p class="t">Retard maximum de <b>30 minutes<svg><use href="#u1"/></svg></b> accepté.
+      <small>Merci de me prévenir à l’avance.</small></p></li>
+    <li><span class="n foil">02</span>
+      <p class="t">Me prévenir <b>en amont<svg><use href="#u2"/></svg></b> si vous venez accompagnée.</p></li>
+    <li><span class="n foil">03</span>
+      <p class="t">Venir avec les cils <b>propres<svg><use href="#u1"/></svg></b>, sans aucun produit dessus.</p></li>
+    <li><span class="n foil">04</span>
+      <p class="t"><b>Éviter<svg><use href="#u2"/></svg></b> de venir maquillée, si possible.</p></li>
+    <li><span class="n foil">05</span>
+      <p class="t">S’assurer de ne <b>pas être allergique<svg><use href="#u1"/></svg></b> à la colle, pour éviter les mauvaises surprises.
+      <small>On peut en discuter en privé si besoin.</small></p></li>
+  </ol>
+
+  <footer>
+    <div class="merci foil">Merci pour votre compréhension</div>
+    <div class="sig"><span>Mb</span>À TRÈS VITE</div>
+  </footer>
 </div>
-<script>
-  const t=document.getElementById('corner');
-  document.querySelectorAll('.corner').forEach(c=>c.appendChild(t.content.cloneNode(true)));
-</script>
 </body>
 </html>
